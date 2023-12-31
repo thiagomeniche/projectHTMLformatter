@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incorporador de Arquivo HTML</title>
+
+    <script type="module" src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"  ></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+</head>
+
+<body>
+    <script>
+        function updateFileName() {
+            var fileInput = document.getElementById('fileInput');
+            var fileNameLabel = document.querySelector('.custom-file-label');
+            
+            if (fileInput.files.length > 1) {
+                fileNameLabel.textContent = fileInput.files.length + ' arquivos selecionados';
+            } else if (fileInput.files.length === 1) {
+                fileNameLabel.textContent = fileInput.files[0].name;
+            } else {
+                fileNameLabel.textContent = 'Escolher Arquivo';
+            }
+}
+    </script>
+    
+    <div class="container mt-5">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Aperfeiçoamento e organização de projetos HTML </h1>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <!-- Substitua o input padrão por um estilo personalizado -->
+                <div class="custom-file mb-3" >
+                    <input type="file" class="custom-file-input" id="fileInput" onchange="updateFileName()" multiple>
+                    <label class="custom-file-label" for="fileInput">Escolher Arquivo</label>
+                </div>
+
+                <button id="processButton" class="btn btn-primary btn-block">Processar Arquivos</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
