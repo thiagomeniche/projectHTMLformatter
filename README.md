@@ -15,5 +15,5 @@ O projeto HTML Formatter é uma ferramenta JavaScript que facilita a formataçã
 1. **Clone o Repositório:**
 
    ```bash
-   git clone https://github.com/seu-username/projectHTMLformatter.git
+   git clone https://github.com/thiagomeniche/projectHTMLformatter.git
    cd projectHTMLformatter
