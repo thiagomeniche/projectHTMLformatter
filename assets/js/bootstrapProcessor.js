@@ -19,7 +19,11 @@ export async function processBootstrap(zip, modifiedHTMLFiles) {
         const modifiedHTMLWithBootstrap = modifiedHTMLWithScripts
             .replace(/<p>/g, '<p class="mb-3">') // Adiciona classe mb-3 às tags <p>
             .replace(/<ul>/g, '<ul class="list-group">') // Adiciona classe list-group às tags <ul>
-            .replace(/<li>/g, '<li class="list-group-item">'); // Adiciona classe list-group-item às tags <li>
+            .replace(/<li>/, '<li class="list-group-item list-group-item-action">') // Modifica apenas o primeiro <li>
+            .replace(/<button>/g, '<button class="btn btn-primary">') // Adiciona classe btn e btn-primary às tags <button>
+            .replace(/<form>/g, '<form class="form">') // Adiciona classe form às tags <form>
+            .replace(/<nav>/g, '<nav class="navbar navbar-expand-lg navbar-light bg-light">') // Adiciona classes navbar, navbar-expand-lg, navbar-light e bg-light às tags <nav>
+            .replace(/<table>/g, '<table class="table table-bordered">'); // Adiciona classes table e table-bordered às tags <table>
 
         // Atualiza o arquivo HTML no zip
         zip.file(fileName, modifiedHTMLWithBootstrap);
